@@ -32,4 +32,8 @@ public class pornManagerImpl implements pornManager {
     public List<pornPictureVO> getPicturesByUser(String user){
         return pictureMapper.getPornPicturesByUser(user);
     }
+
+    public List<pornPictureVO> getPicturesBySubject(String subject){
+        return pictureMapper.getPornPicturesBySubject(subject);
+    }
 }

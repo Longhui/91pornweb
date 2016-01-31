@@ -74,7 +74,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>spr</finalName>
+		<finalName>91pornweb</finalName>
 		<outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>
 		<sourceDirectory>src/main/java</sourceDirectory>
 		<testSourceDirectory>src/main/test/java</testSourceDirectory>

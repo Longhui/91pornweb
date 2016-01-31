@@ -16,7 +16,18 @@
         from
         91porn t1, weburl t2
         where
-        t1.subject_name like "%杭州%" limit 1;
+        t1.subject_name like "%杭州%" limit 3;
+    </select>
+
+    <select id="getPornPicturesBySubject" parameterType="string" resultType="PornPictureVO" resultMap="PornPictureResultMapper">
+        select t1.author_id as author_id,
+        t1.author_name as author_name,
+        t1.subject_name as subject_name,
+        concat(t2.url,t1.url) as url
+        from
+        91porn t1, weburl t2
+        where
+        t1.subject_name like "%${_parameter}%";
     </select>
 
     <select id="getPornPicturesByUser" parameterType="string" resultType="PornPictureVO" resultMap="PornPictureResultMapper">

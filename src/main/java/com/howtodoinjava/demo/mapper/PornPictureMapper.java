@@ -10,4 +10,5 @@ import java.util.List;
 public interface PornPictureMapper {
     public List<pornPictureVO> getPornPictures();
     public List<pornPictureVO> getPornPicturesByUser(String user);
+    public List<pornPictureVO> getPornPicturesBySubject(String subject);
 }

@@ -27,17 +27,23 @@ public class EmployeeController
 		return "employeesListDisplay";
 	}
 
-	@RequestMapping(value = "/91porn", method = RequestMethod.GET)
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public String get91pornPicture(Model model)
 	{
-		model.addAttribute("pictures", manager91.getPictures());
+//		model.addAttribute("pictures", manager91.getPictures());
+		model.addAttribute("pictures", manager91.getPicturesBySubject("杭州"));
 		return "pornPictureListDisplay";
 	}
 
-	@RequestMapping(value = "/test/{user}", method = RequestMethod.GET)
-	public String get91pornPicture(@PathVariable String user,  Model model)
+	@RequestMapping(value = "/91porn/{type}/{param}", method = RequestMethod.GET)
+	public String get91pornPicture(@PathVariable String type, @PathVariable String param,  Model model)
 	{
-		model.addAttribute("pictures", manager91.getPicturesByUser(user));
+		if ("user".equals(type))
+			model.addAttribute("pictures", manager91.getPicturesByUser(param));
+		else if("subject".equals(type))
+			model.addAttribute("pictures", manager91.getPicturesBySubject(param));
+		else
+			model.addAttribute("pictures", manager91.getPictures());
 		return "pornPictureListDisplay";
 	}
 }

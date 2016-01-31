@@ -17,14 +17,12 @@
     <th>Author Id</th>
     <th>Author Name</th>
     <th>Subject Name</th>
-    <th>url </th>
   </tr>
   <c:forEach items="${pictures}" var="picture">
     <tr>
       <td>${picture.authorID}</td>
-      <td>${picture.authorName}</td>
-      <td>${picture.subjectName}</td>
-      <td>${picture.url}</td>
+      <td><a href="/91pornweb/91porn/user/${picture.authorName}">${picture.authorName}</a></td>
+      <td><a href="${picture.url}">${picture.subjectName}</a></td>
     </tr>
   </c:forEach>
 </table>

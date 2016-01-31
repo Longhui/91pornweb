@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.howtodoinjava.demo.mapper.PornPictureMapper">
+    <resultMap type="PornPictureVO" id="PornPictureResultMapper">
+        <id property="authorID" column="author_id"/>
+        <result property="authorName" column="author_name"/>
+        <result property="subjectName" column="subject_name"/>
+        <result property="url" column="url"/>
+    </resultMap>
+
+    <select id="getPornPictures" resultType="PornPictureVO" resultMap="PornPictureResultMapper">
+        select t1.author_id as author_id,
+        t1.author_name as author_name,
+        t1.subject_name as subject_name,
+        concat(t2.url,t1.url) as url
+        from
+        91porn t1, weburl t2
+        where
+        t1.subject_name like "%杭州%" limit 1;
+    </select>
+
+    <select id="getPornPicturesByUser" parameterType="string" resultType="PornPictureVO" resultMap="PornPictureResultMapper">
+        select t1.author_id as author_id,
+        t1.author_name as author_name,
+        t1.subject_name as subject_name,
+        concat(t2.url,t1.url) as url
+        from
+        91porn t1, weburl t2
+        where
+        t1.author_name like "%${_parameter}%";
+    </select>
+
+</mapper>

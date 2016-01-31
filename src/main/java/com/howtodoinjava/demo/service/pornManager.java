@@ -9,4 +9,5 @@ import java.util.List;
  */
 public interface pornManager {
     public List<pornPictureVO> getPictures();
+    public List<pornPictureVO> getPicturesByUser(String user);
 }
